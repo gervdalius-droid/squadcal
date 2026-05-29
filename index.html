@@ -3,31 +3,31 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
-<title>SquadCal</title>
+<title>CrewCal</title>
 
 <!-- PWA manifest -->
-<link rel="manifest" href="/manifest.json">
+<link rel="manifest" href="manifest.json">
 
 <!-- iOS PWA -->
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="apple-mobile-web-app-title" content="SquadCal">
-<link rel="apple-touch-icon" href="/icon-192.png">
-<link rel="apple-touch-icon" sizes="152x152" href="/icon-192.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/icon-192.png">
-<link rel="apple-touch-icon" sizes="167x167" href="/icon-192.png">
+<meta name="apple-mobile-web-app-title" content="CrewCal">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="apple-touch-icon" sizes="152x152" href="icon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="icon-192.png">
+<link rel="apple-touch-icon" sizes="167x167" href="icon-192.png">
 
 <!-- Android / theme -->
 <meta name="theme-color" content="#5b4cf5">
 <meta name="mobile-web-app-capable" content="yes">
 
 <!-- Favicon -->
-<link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
-<link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="icon-512.png">
 
 <!-- Description for share/bookmark -->
 <meta name="description" content="Plan events with your squad. See who's free — synced live.">
-<meta name="application-name" content="SquadCal">
+<meta name="application-name" content="CrewCal">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -50,7 +50,8 @@ html,body,#app{height:100%;font-family:'DM Sans',system-ui,sans-serif;background
 
 /* TOPBAR */
 .topbar{height:56px;background:var(--s);border-bottom:1.5px solid var(--bd);display:flex;align-items:center;justify-content:space-between;padding:0 16px;flex-shrink:0;}
-.logo{font-size:18px;font-weight:700;letter-spacing:-.6px;color:#1a1a1a;}
+.logo{font-size:18px;font-weight:800;letter-spacing:-.5px;color:#1a1a1a;display:flex;align-items:center;gap:8px;flex-shrink:0;}
+.logo-mark{width:28px;height:28px;border-radius:8px;flex-shrink:0;display:block;box-shadow:0 2px 7px rgba(124,92,255,.35);}
 .logo span{color:var(--a);}
 .tr{display:flex;align-items:center;gap:10px;}
 .sync-dot{width:7px;height:7px;border-radius:50%;background:var(--mt2);flex-shrink:0;}
@@ -81,7 +82,7 @@ html,body,#app{height:100%;font-family:'DM Sans',system-ui,sans-serif;background
 @media(min-width:600px){.bottom-nav{display:none;}}
 .bnav-item{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:8px 4px 10px;cursor:pointer;font-size:10px;font-weight:500;color:var(--mt2);gap:3px;border:none;background:transparent;font-family:inherit;position:relative;transition:color .15s;}
 .bnav-item.on{color:var(--a);}
-.bnav-icon{font-size:21px;line-height:1;}
+.bnav-icon{display:flex;align-items:center;justify-content:center;line-height:1;height:25px;}
 .bnav-badge{position:absolute;top:6px;right:calc(50% - 16px);background:#ef4444;color:#fff;font-size:8px;font-weight:700;border-radius:10px;padding:1px 4px;min-width:14px;text-align:center;}
 
 /* TABS */
@@ -543,13 +544,13 @@ html,body,#app{height:100%;font-family:'DM Sans',system-ui,sans-serif;background
 .gsw-err{font-size:11px;color:var(--r);margin-bottom:7px;}
 
 /* CHAT */
-.chat-fab{position:fixed;bottom:76px;right:16px;width:52px;height:52px;border-radius:50%;background:var(--a);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(91,76,245,.45);z-index:450;transition:transform .15s,box-shadow .15s;font-size:22px;}
+.chat-fab{position:fixed;bottom:calc(env(safe-area-inset-bottom,0px) + 72px);right:16px;width:54px;height:54px;border-radius:50%;background:linear-gradient(135deg,#6d5cff 0%,#ec4899 100%);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(91,76,245,.45);z-index:450;transition:transform .15s,box-shadow .15s;font-size:22px;}
 .chat-fab:hover{transform:scale(1.08);box-shadow:0 6px 28px rgba(91,76,245,.55);}
 @media(min-width:600px){.chat-fab{bottom:24px;right:20px;}}
-.maps-fab{position:fixed;bottom:138px;right:16px;width:52px;height:52px;border-radius:50%;background:#4285f4;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(66,133,244,.45);z-index:450;transition:transform .15s,box-shadow .15s;pointer-events:all;}
+.maps-fab{position:fixed;bottom:calc(env(safe-area-inset-bottom,0px) + 136px);right:16px;width:54px;height:54px;border-radius:50%;background:#4285f4;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(66,133,244,.45);z-index:450;transition:transform .15s,box-shadow .15s;pointer-events:all;}
 .maps-fab:hover{transform:scale(1.08);box-shadow:0 6px 28px rgba(66,133,244,.55);}
 .maps-fab:active{transform:scale(.95);}
-@media(min-width:600px){.maps-fab{bottom:90px;right:20px;}}
+@media(min-width:600px){.maps-fab{bottom:88px;right:20px;}}
 .chat-unread{position:absolute;top:-3px;right:-3px;background:#ef4444;color:#fff;font-size:9px;font-weight:700;border-radius:10px;padding:2px 5px;min-width:16px;text-align:center;border:2px solid var(--s);}
 .chat-panel{position:fixed;bottom:0;right:0;width:100%;max-width:380px;height:70vh;max-height:540px;background:var(--s);border-radius:20px 20px 0 0;box-shadow:0 -8px 40px rgba(0,0,0,.15);z-index:460;display:flex;flex-direction:column;overflow:hidden;transform:translateY(105%);transition:transform .28s cubic-bezier(.32,.72,0,1);pointer-events:none;}
 .chat-panel.open{transform:translateY(0);pointer-events:all;}
@@ -764,9 +765,6 @@ button:disabled,.authbtn:disabled,.upgrade-btn:disabled{ cursor:not-allowed; }
 
 /* ── 11. SAFE-AREA & FAB STACKING (notched devices) ─────────────── */
 .bottom-nav{ padding-bottom:env(safe-area-inset-bottom,0); }
-@supports(padding:max(0px)){
-  .chat-fab{ bottom:max(76px,calc(env(safe-area-inset-bottom,0) + 64px)); }
-}
 
 /* ── 12. MODAL / SHEET COMFORT (reading ease & reachability) ─────
    Slightly larger body line-height and a comfortable bottom inset
@@ -789,6 +787,26 @@ button:disabled,.authbtn:disabled,.upgrade-btn:disabled{ cursor:not-allowed; }
 .calscroll::-webkit-scrollbar{ width:8px; height:8px; }
 .calscroll::-webkit-scrollbar-thumb{ background:var(--bd2); border-radius:8px; }
 .calscroll::-webkit-scrollbar-track{ background:transparent; }
+
+/* ── 15. CrewCal: layout fixes (no horizontal overflow, tidy topbar) ── */
+html,body{ overflow-x:hidden; }
+#app,.shell{ max-width:100vw; overflow-x:hidden; }
+.tr{ min-width:0; gap:8px; }
+.gbadge{ flex-shrink:1; min-width:0; }
+.code-pill{ flex-shrink:0; }
+@media(max-width:430px){
+  .topbar{ padding:0 11px; }
+  .tr{ gap:6px; }
+  .gbadge{ max-width:96px; padding:4px 9px; }
+  .code-pill{ padding:5px 9px; gap:3px; }
+  .cl{ display:none; }            /* hide "Code" label; keep value + copy */
+  .logo{ font-size:16px; }
+  .logo-mark{ width:25px; height:25px; }
+}
+@media(max-width:360px){
+  .gbadge{ max-width:74px; }
+  .cc{ display:none; }            /* hide "copy" label on very narrow screens */
+}
 </style>
 </head>
 <body>
@@ -1513,7 +1531,7 @@ function showPaywall(feature){
   var subs={'search':'You\'ve used your 3 free searches this month. Upgrade for unlimited searches.','import':'Import your Google, Apple or Outlook calendar automatically. Premium feature.'};
   ap(box,mk('div','paywall-icon',icons[feature]||'⭐'));
   ap(box,mk('div','paywall-title',titles[feature]||'Go Premium'));
-  ap(box,mk('div','paywall-sub',subs[feature]||'Unlock the full SquadCal experience.'));
+  ap(box,mk('div','paywall-sub',subs[feature]||'Unlock the full CrewCal experience.'));
   // Plans
   var selectedPlan='monthly';
   var monthly=el('div','plan-card selected');
@@ -1606,7 +1624,7 @@ function mkPaywallModal(){
   var sub=mk('div','paywall-sub',
     S.paywallFeature==='search'?'You\'ve used your 3 free searches this month. Upgrade for unlimited searches and more.':
     S.paywallFeature==='import'?'Import your Google, Apple or Outlook calendar to automatically mark your busy days. Premium feature.':
-    'Unlock the full SquadCal experience.');
+    'Unlock the full CrewCal experience.');
   ap(box,icon,title,sub);
   // Plan options
   var monthly=el('div','plan-card selected');monthly.id='plan-monthly';
@@ -2401,7 +2419,7 @@ function exportCalendarICS(){
   // AI pinned events
   S.aiResults.filter(function(ev){return ev.pinned;}).forEach(function(ev){events.push(ev);});
   if(!events.length){alert('No events to export. Add events or pin some from search first.');return;}
-  var lines=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//SquadCal//EN','CALSCALE:GREGORIAN','METHOD:PUBLISH'];
+  var lines=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//CrewCal//EN','CALSCALE:GREGORIAN','METHOD:PUBLISH'];
   events.forEach(function(ev){
     var uid=(ev.id||Math.random().toString(36).slice(2))+'@squadcal';
     var now=new Date().toISOString().replace(/[-:]/g,'').slice(0,15)+'Z';
@@ -2436,7 +2454,7 @@ function exportCalendarICS(){
   lines.push('END:VCALENDAR');
   var blob=new Blob([lines.join('\r\n')],{type:'text/calendar;charset=utf-8'});
   var url=URL.createObjectURL(blob);
-  var a=document.createElement('a');a.href=url;a.download='squadcal-events.ics';
+  var a=document.createElement('a');a.href=url;a.download='crewcal-events.ics';
   document.body.appendChild(a);a.click();document.body.removeChild(a);
   URL.revokeObjectURL(url);
 }
@@ -3851,7 +3869,7 @@ function mkMembers(){
   var expHdr=el('div','',{display:'flex',alignItems:'center',justifyContent:'space-between',marginBottom:'10px'});
   ap(expHdr,mk('div','','📤 Export to your calendar',{fontSize:'13px',fontWeight:'700',color:'#1a1a1a'}));
   expCard.appendChild(expHdr);
-  ap(expCard,mk('div','','Download your SquadCal events as an .ics file to import into Google Calendar, Apple Calendar or Outlook.',{fontSize:'12px',color:'var(--mt)',lineHeight:'1.6',marginBottom:'12px'}));
+  ap(expCard,mk('div','','Download your CrewCal events as an .ics file to import into Google Calendar, Apple Calendar or Outlook.',{fontSize:'12px',color:'var(--mt)',lineHeight:'1.6',marginBottom:'12px'}));
   var exportBtn=mk('button','',null,{border:'1.5px solid var(--a)',borderRadius:'10px',padding:'10px 16px',fontSize:'13px',fontWeight:'600',cursor:'pointer',background:'var(--abg)',color:'var(--at)',fontFamily:'inherit',width:'100%'});
   exportBtn.textContent='⬇️ Download .ics file';on(exportBtn,'click',exportCalendarICS);expCard.appendChild(exportBtn);
   var exportNote=mk('div','','Includes your personal events and pinned search results.',{fontSize:'11px',color:'var(--mt2)',marginTop:'8px'});expCard.appendChild(exportNote);
@@ -3900,7 +3918,7 @@ function mkModal(){
 function render(){
   try{
   var app=document.getElementById('app');app.innerHTML='';app.className='shell';
-  if(S.screen==='loading'){var ls=el('div','authscreen');var lc=el('div','authcard',{textAlign:'center'});lc.innerHTML='<div style="font-size:32px;margin-bottom:12px">📅</div><div style="font-size:16px;font-weight:700">SquadCal</div><div style="font-size:12px;color:var(--mt);margin-top:6px">Loading…</div>';ls.appendChild(lc);app.appendChild(ls);return;}
+  if(S.screen==='loading'){var ls=el('div','authscreen');var lc=el('div','authcard',{textAlign:'center'});lc.innerHTML='<div style="width:62px;height:62px;margin:0 auto 14px"><svg viewBox="0 0 512 512" style="width:100%;height:100%"><defs><linearGradient id="ldd" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#6d5cff"/><stop offset="34%" stop-color="#a855f7"/><stop offset="66%" stop-color="#ec4899"/><stop offset="100%" stop-color="#fb7185"/></linearGradient><linearGradient id="ldp" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#22d3ee"/><stop offset="100%" stop-color="#a3e635"/></linearGradient></defs><rect width="512" height="512" rx="116" fill="url(#ldd)"/><rect x="188" y="120" width="26" height="58" rx="13" fill="#fff"/><rect x="298" y="120" width="26" height="58" rx="13" fill="#fff"/><rect x="120" y="150" width="272" height="246" rx="38" fill="#fff"/><path d="M120 188 a38 38 0 0 1 38 -38 h196 a38 38 0 0 1 38 38 v34 h-272 z" fill="#4f46e5"/><g fill="#5b4cf5"><rect x="156" y="252" width="40" height="34" rx="11"/><rect x="236" y="252" width="40" height="34" rx="11"/><rect x="316" y="252" width="40" height="34" rx="11" fill="#c7c2f5"/><rect x="156" y="312" width="40" height="34" rx="11" fill="#c7c2f5"/><rect x="236" y="312" width="40" height="34" rx="11"/></g><rect x="316" y="312" width="40" height="34" rx="11" fill="url(#ldp)"/></svg></div><div style="font-size:18px;font-weight:800;letter-spacing:-.4px">Crew<span style="color:var(--a)">Cal</span></div><div style="font-size:12px;color:var(--mt);margin-top:6px">Loading…</div>';ls.appendChild(lc);app.appendChild(ls);return;}
   if(S.screen==='auth'){app.appendChild(mkAuthScreen());return;}
   if(S.screen==='setup'){app.appendChild(mkSetupScreen());return;}
   if(S.screen==='waiting'){app.appendChild(mkWaitingScreen());return;}
@@ -3917,7 +3935,7 @@ function render(){
   }
 
   // Topbar
-  var top=el('div','topbar');var logo=el('div','logo');logo.innerHTML='Squad<span>Cal</span>';
+  var top=el('div','topbar');var logo=el('div','logo');logo.innerHTML='<svg class="logo-mark" viewBox="0 0 512 512" aria-hidden="true"><defs><linearGradient id="lgd" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#6d5cff"/><stop offset="34%" stop-color="#a855f7"/><stop offset="66%" stop-color="#ec4899"/><stop offset="100%" stop-color="#fb7185"/></linearGradient><linearGradient id="lgp" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#22d3ee"/><stop offset="100%" stop-color="#a3e635"/></linearGradient></defs><rect width="512" height="512" rx="116" fill="url(#lgd)"/><rect x="188" y="120" width="26" height="58" rx="13" fill="#fff"/><rect x="298" y="120" width="26" height="58" rx="13" fill="#fff"/><rect x="120" y="150" width="272" height="246" rx="38" fill="#fff"/><path d="M120 188 a38 38 0 0 1 38 -38 h196 a38 38 0 0 1 38 38 v34 h-272 z" fill="#4f46e5"/><g fill="#5b4cf5"><rect x="156" y="252" width="40" height="34" rx="11"/><rect x="236" y="252" width="40" height="34" rx="11"/><rect x="316" y="252" width="40" height="34" rx="11" fill="#c7c2f5"/><rect x="156" y="312" width="40" height="34" rx="11" fill="#c7c2f5"/><rect x="236" y="312" width="40" height="34" rx="11"/></g><rect x="316" y="312" width="40" height="34" rx="11" fill="url(#lgp)"/></svg>Crew<span>Cal</span>';
   var tr2=el('div','tr');var sdot=el('div','sync-dot '+S.syncStatus);
   var code=(S.newcode||groupCode()||'').toUpperCase();
   var cpill=el('div','code-pill');ap(cpill,mk('span','cl','Code'),mk('span','cv',code),mk('span','cc','copy'));on(cpill,'click',function(){navigator.clipboard.writeText(code);cpill.querySelector('.cc').textContent='✓';setTimeout(function(){var cc=cpill.querySelector('.cc');if(cc)cc.textContent='copy';},2000);});
@@ -3949,7 +3967,7 @@ function render(){
   app.appendChild(body);
 
   var bnav=el('div','bottom-nav');
-  [{v:'calendar',icon:'📅',lbl:'Calendar'},{v:'events',icon:'🔍',lbl:'Events'},{v:'members',icon:'👥',lbl:'Members',badge:pendingCount}].forEach(function(item){var btn2=el('button','bnav-item'+(S.tab===item.v?' on':''));ap(btn2,mk('span','bnav-icon',item.icon),mk('span','',item.lbl));if(item.badge)ap(btn2,mk('span','bnav-badge',String(item.badge)));on(btn2,'click',function(){S._evScroll=0;ss({tab:item.v,showdd:false});});bnav.appendChild(btn2);});
+  [{v:'calendar',lbl:'Calendar'},{v:'events',lbl:'Events'},{v:'members',lbl:'Members',badge:pendingCount}].forEach(function(item){var act=S.tab===item.v;var btn2=el('button','bnav-item'+(act?' on':''));var gid='ng_'+item.v;var sk=act?'url(#'+gid+')':'currentColor';var gd=act?'<defs><linearGradient id="'+gid+'" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="24" y2="24"><stop offset="0%" stop-color="#6d5cff"/><stop offset="45%" stop-color="#ec4899"/><stop offset="100%" stop-color="#fb7185"/></linearGradient></defs>':'';var pth={calendar:'<rect x="3" y="4.5" width="18" height="16" rx="3"/><path d="M3 9.5h18"/><path d="M8 2.2v3"/><path d="M16 2.2v3"/>',events:'<circle cx="11" cy="11" r="7"/><path d="M21 21l-4.2-4.2"/>',members:'<circle cx="9" cy="8" r="3.4"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M16.5 4.6a3.4 3.4 0 0 1 0 6.8"/><path d="M19.8 20c0-2.6-1.1-4.9-2.9-5.8"/>'}[item.v];var ic=mk('span','bnav-icon');ic.innerHTML='<svg viewBox="0 0 24 24" width="25" height="25" fill="none" stroke="'+sk+'" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">'+gd+pth+'</svg>';ap(btn2,ic,mk('span','',item.lbl));if(item.badge)ap(btn2,mk('span','bnav-badge',String(item.badge)));on(btn2,'click',function(){S._evScroll=0;ss({tab:item.v,showdd:false});});bnav.appendChild(btn2);});
   app.appendChild(bnav);
   }catch(ex){console.error('render error:',ex);var app2=document.getElementById('app');if(app2){app2.innerHTML='<div style="padding:20px;color:red;font-size:12px">Render error: '+ex.message+'</div>';}}
 }
@@ -3967,7 +3985,7 @@ setInterval(function(){if(S.refreshToken){authRefresh(S.refreshToken).then(funct
 <script>
 if('serviceWorker' in navigator){
   window.addEventListener('load',function(){
-    navigator.serviceWorker.register('/sw.js').catch(function(){});
+    navigator.serviceWorker.register('sw.js').catch(function(){});
   });
 }
 </script>
